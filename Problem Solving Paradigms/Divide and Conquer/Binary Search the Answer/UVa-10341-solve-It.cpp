@@ -9,13 +9,11 @@ typedef double ll;
 
 ll p, q, r, s, t, u;
 
-bool compare(const ll &x, const ll &y)
-{
+bool compare(const ll &x, const ll &y) {
     return (abs(x - y) < 1e-8);
 }
 
-ll eval(ll x)
-{
+ll eval(ll x) {
 	return p * exp(-x) + q * sin(x) + r * cos(x) + s * tan(x) + t * pow(x, 2) + u;
 }
 
@@ -24,7 +22,7 @@ bool conquer(ll bottom, ll top, ll &sol) {
 	ll eval_bottom = eval(bottom);
 	ll eval_top = eval(top);
 
-	if(abs(eval_bottom) < 1e-8){
+	if(abs(eval_bottom) < 1e-8) {
 		sol = bottom; return true;
 	}
 	if(abs(eval_top) < 1e-8) {
