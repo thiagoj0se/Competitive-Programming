@@ -1,3 +1,9 @@
+/* É suficiente procurar o valor que atende a função usando a técnica Divide and Conquer.
+Nesse tipo de problema, observe [se existe] um valor que se maximiza ou não a função,
+as condições que tornam impossível a solução, e as condições que mudam como a recursão deve 
+ser chamada novamente caso seja provável uma solução. 
+Neste problema, estude o que acontece com a função perto de -1, 0, 1, e inf. */ 
+
 #include <iostream>
 #include <math.h>
 #include <algorithm>

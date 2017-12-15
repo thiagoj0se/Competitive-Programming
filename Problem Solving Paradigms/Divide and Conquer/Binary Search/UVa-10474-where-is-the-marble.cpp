@@ -1,3 +1,6 @@
+/* Para este problema é suficiente ordenar a sequência e 
+procurar o valor dado usando lower_bound. */
+
 #include <iostream>
 #include <math.h>
 #include <algorithm>
