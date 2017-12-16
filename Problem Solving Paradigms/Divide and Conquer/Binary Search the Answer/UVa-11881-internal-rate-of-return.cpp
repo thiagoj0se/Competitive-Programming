@@ -40,10 +40,8 @@ bool conquer(ll bottom, ll top, const vct &cf, vct &sol) {
 				return conquer(bottom, mid, cf, sol);
 			conquer(mid, top, cf, sol);
 		}
-
 	}
-	else return false;
-	
+	else return false;	
 }
 
 int main(){ 
