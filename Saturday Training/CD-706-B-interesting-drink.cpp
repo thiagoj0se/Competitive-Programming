@@ -20,7 +20,7 @@ typedef vector< vct > vvct;
 
 ll f_n(vct &vctN, ll const b) {
     vct::iterator it;
-    it = upb(vctN.begin(), vctN.end(), b);
+    it = upb(all(vctN), b);
     return it - vctN.begin();
 }
 

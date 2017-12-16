@@ -30,7 +30,7 @@ int main(){
     cin >> M;
     for(ll i = 0; i < M; i++) {
         cin >> num;
-        it = lwb(vctN.begin(), vctN.end(), num);
+        it = lwb(all(vctN), num);
         cout << it - vctN.begin() << endl;
     }
     return 0;
