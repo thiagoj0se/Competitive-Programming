@@ -18,7 +18,7 @@ typedef long long int ll;
 typedef vector<ll> vct;
 typedef vector< vct > vvct;
 
-ll find_number(vct &vctN, ll const b) {
+ll find_number(vct &vctN, ll const & b) {
     vct::iterator it;
     it = upb(all(vctN), b);
     return it - vctN.begin();
