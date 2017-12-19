@@ -38,7 +38,7 @@ bool conquer(ll bottom, ll top, ll &sol) {
 		eval_bottom < 0 && eval_top < 0)
 	return false;
 	
-	ll mid = (bottom + top) >> 1;
+	ll mid = (bottom + top)/2.0;
 	ll eval_mid = eval(mid);
 
 	if(abs(eval_mid) < 1e-8){
