@@ -4,14 +4,35 @@ as condições que tornam impossível a solução, e as condições que mudam co
 ser chamada novamente caso seja provável uma solução. 
 Neste problema, estude o que acontece com a função perto de -1, 0, 1, e inf. */ 
 
+#include <stdio.h>
 #include <iostream>
-#include <math.h>
-#include <algorithm>
+#include <string>
 #include <vector>
+#include <bitset>
+#include <algorithm>
+#include <limits.h>
+#include <math.h>
+#include <iomanip>
+
+#define pb push_back
+#define pp pop_back
+#define mp make_pair
+#define lwb lower_bound
+#define upb upper_bound
+#define all(E) E.begin(), E.end()
+#define e_min min_element
+#define e_max max_element 
+#define bin_s binary_search 
+#define ff find
 
 using namespace std;
 typedef double ll;
 typedef vector<ll> vct;
+typedef vector< vct > vvct;
+typedef pair<ll, ll> ii;
+typedef vector<ii> vii;
+typedef vector< vii > ADL;
+typedef bitset<1 << 8> VL;
 
 ll eval(ll IRR, const vct &cf) {
 	ll sum = 0;
@@ -26,7 +47,7 @@ bool conquer(ll bottom, ll top, const vct &cf, vct &sol) {
 		ll eval_mid = eval(mid, cf);
 		
 		if(abs(eval_mid - cf.front()) < 1e-9) {
-			sol.push_back(mid);
+			sol.pb(mid);
 			return true;
 		}
 
@@ -50,7 +71,7 @@ int main(){
 		if(T) {
 			for(ll i = 0; i < T + 1; i++) {
 				cin >> num;
-				cf.push_back(num);
+				cf.pb(num);
 			}
 			cf.front() *= -1;
 			if(conquer(-1, 1e+6, cf, sol)) {
