@@ -1,0 +1,5 @@
+
+sudo apt-get install vim
+sudo apt-get install curl
+Adding to syntax group:
+:syn keyword cType type1
