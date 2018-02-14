@@ -1,0 +1,7 @@
+
+sudo apt-get install vim
+sudo apt-get install curl
+SPF13-vim IDE Plugin:
+curl http://j.mp/spf13-vim3 -L -o - | sh
+Adding to syntax group:
+:syn keyword cType type1

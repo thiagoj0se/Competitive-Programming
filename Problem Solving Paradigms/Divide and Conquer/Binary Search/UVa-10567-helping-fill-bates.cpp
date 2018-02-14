@@ -2,9 +2,7 @@
 os índices sempre que [letra] aparece no texto.
 Depois, como o vector em [letra] é ordenado naturalmente pela ordem em que eles aparecem,
 resta fazer uma busca binária por toda a palavra atualizando a posição mínima possível 
-de cada letra e fazendo tal busca por upper_bound. 
-Obs: O vector de vector é desnessário e poderia ser substituido facilmente por um
-array de vectors ou outra estrutura imaginária.*/
+de cada letra e fazendo tal busca por upper_bound. */
 
 #include <stdio.h>
 #include <iostream>
