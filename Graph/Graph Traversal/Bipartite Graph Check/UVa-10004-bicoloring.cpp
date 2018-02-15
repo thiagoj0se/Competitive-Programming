@@ -1,12 +1,4 @@
-#include <stdio.h>
-#include <iostream>
-#include <string>
-#include <vector>
-#include <bitset>
-#include <algorithm>
-#include <limits.h>
-#include <math.h>
-#include <iomanip>
+#include <bits/std++.h>
 
 #define pb push_back
 #define pp pop_back
