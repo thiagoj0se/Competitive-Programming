@@ -10,26 +10,30 @@ string entry;
 
 void eval(unsigned m) {
     for(int i = 0; i < entry.size(); i++) {
-        if(entry[i] == '(') {
-            for(int j = i; i < entry.size(); j++) {
+        if(entry[i] == '(')
+            for(int j = i; i < entry.size(); j++)
                 if(entry[j] == ')') {
                     entry.erase(entry.begin() + i);
                     entry.erase(entry.begin() + j - 1);
                     eval(i);
                     break;
                 }
-            }
-        }
-    }
 
     if(entry.size() >= 3) {
-        vct answer; char oper;
+        vct answer; char oper; bool flip;
         while(answer.size() < 2) {
-            if(entry[m] == '1') answer.pb(1);
-            else if(entry[m] == '0') answer.pb(0);
-            else if(entry[m] == 'X') answer.pb(X);
-            else if(entry[m] == 'Y') answer.pb(Y);
-            else oper = entry[m];
+            if(entry[m] == '~') {
+                flip = !flip;
+            } else {
+                if(entry[m] == '1') answer.pb(1);
+                else if(entry[m] == '0') answer.pb(0);
+                else if(entry[m] == 'X') answer.pb(X);
+                else if(entry[m] == 'Y') answer.pb(Y);
+                else oper = entry[m];
+                if((entry[m] == '1' || entry[m] =='0' ||
+                   entry[m] == 'X' || entry[m] == 'Y') && flip)
+                    answer.back() = !answer.back();
+            }
             entry.erase(entry.begin() + m);
         }
         unsigned AND =  answer.front() && answer.back(),
