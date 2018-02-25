@@ -32,12 +32,18 @@ void eval(unsigned m) {
             else oper = entry[m];
             entry.erase(entry.begin() + m);
         }
-        unsigned left = answer.front() && answer.back();
-        unsigned right = answer.front() || answer.back();
+        unsigned AND =  answer.front() && answer.back(),
+                 OR  =  answer.front() || answer.back(),
+                 NAND = (answer.front() == answer.back() ? 1 : 0),
+                 NOR  = (answer.front() != answer.back() ? 1 : 0);
         if(oper == '.')
-            entry.insert(m, to_string(left));
+            entry.insert(m, to_string(AND));
         else if(oper == '+')
-            entry.insert(m, to_string(right));
+            entry.insert(m, to_string(OR));
+        else if(oper == '&')
+            entry.insert(m, to_string(NAND));
+        else if(oper == '|')
+            entry.insert(m, to_string(NOR));
     }
     return;
 }
