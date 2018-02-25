@@ -23,11 +23,12 @@ typedef bitset<1 << 8> VL;
 
 vvct graph;
 int  *visited, *color;
-int CC_count;
+int CC_count[2]; enum col{WHITE, BLACK};
 int isBipartite;
 
 void dfs(int A) {
-    visited[A] = 1; CC_count++;
+    visited[A] = 1;
+    CC_count[color[A]]++;
     int v;
     for(int i = 0; i < graph[A].size(); i++) {
         v = graph[A][i];
@@ -44,7 +45,6 @@ int main() {
     int T, N, P, enemy, answer;
     cin >> T;
     for(int t = 0; t < T; t++) {
-        if(t) cout << endl;
         cin >> N;
         graph.clear(), graph.resize(N);
         visited = (int*) calloc(N, sizeof(int));
@@ -65,14 +65,14 @@ int main() {
         for(int i = 0; i < N; i++) {
             if(!visited[i]) {
                 isBipartite = 1;
-                CC_count = 0;
+                CC_count[WHITE] = CC_count[BLACK] = 0;
                 color[i] = 0;
                 dfs(i);
                 if(isBipartite)
-                    answer += CC_count % 2 ? CC_count/2 + 1 : CC_count/2;
+                    answer += max(CC_count[WHITE], CC_count[BLACK]);
             }
         }
-        cout << answer;
+        cout << answer << endl;
         free(visited), free(color);
     }
 }
