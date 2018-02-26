@@ -41,15 +41,15 @@ void eval(unsigned m) {
         unsigned AND =  answer.front() && answer.back(),
                  OR  =  answer.front() || answer.back(),
                  NAND = (answer.front() == answer.back() ? 1 : 0),
-                 NOR  = (answer.front() != answer.back() ? 1 : 0);
-        if(oper == '.')
-            entry.insert(m, to_string(AND));
-        else if(oper == '+')
-            entry.insert(m, to_string(OR));
-        else if(oper == '&')
-            entry.insert(m, to_string(NAND));
-        else if(oper == '|')
-            entry.insert(m, to_string(NOR));
+                 NOR  = (answer.front() != answer.back() ? 1 : 0),
+                 IMP = !answer.front() || answer.back(),
+                 SSE = ((!answer.front() || answer.back()) && (!answer.back() || answer.front()));
+        if(oper == '.') entry.insert(m, to_string(AND));
+        else if(oper == '+') entry.insert(m, to_string(OR));
+        else if(oper == '&') entry.insert(m, to_string(NAND));
+        else if(oper == '|') entry.insert(m, to_string(NOR));
+        else if(oper == '>') entry.insert(m, to_string(IMP));
+        else if(oper == '=') entry.insert(m, to_string(SSE));
     } else {
         if(entry.size() == 2) {
             entry.erase(entry.begin()+m);
@@ -67,6 +67,7 @@ void eval(unsigned m) {
 }
 
 void printTable(string &entry) {
+    cout << endl << "Truth table: " << endl;
     unsigned result, entry_size = entry.size();
     string backup(entry), spaces, barrier;
     for(int i = 0; i < entry.size()/2; i++)
@@ -91,7 +92,9 @@ int main() {
     char key;
     cout << "Copyright 2018, Thiago José, All rights reserved ~ github.com/thiagoj0se" << endl
          << "Attention! Give procedence to everything! All expressions need to be put inside brackets. Ex: ((X+Y).X)" << endl
-         << "Guide: . is AND, + is OR, ~ is NOT, & is XAND, | is XOR.  Ex: (((X.~Y)+X).((~X&Y)+X)) is correct!" << endl;
+         << "Guide: . is AND, + is OR, ~ is NOT, & is XAND, | is XOR, > is IMP, = is SSE" << endl
+         << "Only expressions with X and Y! ~ Ex: (((X.~Y)+X).((~X&Y)+X)) is correct!" << endl;
+    cout << endl << "Enter your expression: ";
     while(scanf("%c", &key), key != '\n') {
         if(key != ' ') entry.pb(key);
     }
