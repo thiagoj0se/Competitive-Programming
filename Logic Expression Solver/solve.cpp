@@ -33,8 +33,10 @@ void eval(unsigned m) {
                 else if(entry[m] == 'Y') answer.pb(Y);
                 else oper = entry[m];
                 if((entry[m] == '1' || entry[m] =='0' ||
-                   entry[m] == 'X' || entry[m] == 'Y') && flip)
+                   entry[m] == 'X' || entry[m] == 'Y') && flip) {
                     answer.back() = !answer.back();
+		    flip = !flip;
+		}
             }
             entry.erase(entry.begin() + m);
         }
@@ -42,8 +44,8 @@ void eval(unsigned m) {
                  OR  =  answer.front() || answer.back(),
                  NAND = (answer.front() == answer.back() ? 1 : 0),
                  NOR  = (answer.front() != answer.back() ? 1 : 0),
-                 IMP = !answer.front() || answer.back(),
-                 SSE = ((!answer.front() || answer.back()) && (!answer.back() || answer.front()));
+                 IMP = (!answer.front()) || answer.back(),
+                 SSE = (((!answer.front()) || answer.back()) && ((!answer.back()) || answer.front()));
         if(oper == '.') entry.insert(m, to_string(AND));
         else if(oper == '+') entry.insert(m, to_string(OR));
         else if(oper == '&') entry.insert(m, to_string(NAND));
