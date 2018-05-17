@@ -13,7 +13,7 @@ Integer recursiveKnapSack(Integer C, Integer n, Integer *w, Integer *v) {
     return max(recursiveKnapSack(C, n - 1, w, v), v[n] + recursiveKnapSack(C - w[n], n - 1, w, v));
 }
 
-//Interative DP solution
+//Iterative DP solution
 Integer iterativeKnapSack(Integer C, Integer n, Integer *w, Integer *v) {
     Integer table[n + 1][C + 1];
     for(Integer i = 0; i <= n; i++) {
