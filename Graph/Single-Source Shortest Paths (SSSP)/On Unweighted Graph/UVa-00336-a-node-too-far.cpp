@@ -21,7 +21,7 @@ typedef vector< vii > ADL;
 typedef bitset<1 << 20> VL;
 
 
-int bfs(int S, int TTL, map<int, vector<int> > network) {
+int bfs(int S, int TTL, map<int, vector<int> > &network) {
     map <int, bool> visited;
     map <int, int> dist;
     queue<int> quu;
