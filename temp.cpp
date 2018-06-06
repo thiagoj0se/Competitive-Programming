@@ -12,16 +12,10 @@
 #define ff find
 
 using namespace std;
-typedef long int ll;
+typedef long long ll;
 typedef vector<ll> vct;
 typedef vector< vct > vvct;
 typedef pair<ll, ll> ii;
-typedef pair<ll, ii> lii;
 typedef vector<ii> vii;
 typedef vector< vii > ADL;
 typedef bitset<1 << 20> VL;
-
-int main() {
-
-}
-
