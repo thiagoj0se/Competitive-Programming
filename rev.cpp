@@ -190,7 +190,6 @@ void dijsktra(ll source) {
                 pqu.push(ii(dist[adj_v], adj_v));
             }
         }
-    }
 }
 
 void SPFA(ll source) {
@@ -254,7 +253,7 @@ void EulerTour(list<ll>::iterator i, ll u) {
                 }
             }
             EulerTour(tour.insert(i, u), adj_vertex);
-        } 
+        }
     }
 }
 
@@ -297,7 +296,7 @@ public:
         return sum;
     }
     void adjust(ll idx, ll value) {
-        for(; idx < ft.size(); idx += (idx & -idx)) 
+        for(; idx < ft.size(); idx += (idx & -idx))
             ft[idx] += value;
     }
 };
@@ -327,7 +326,7 @@ public:
     }
     ll query(ll i, ll j) {
         ll k = log2(j - i + 1);
-        return min(spt[i][k], spt[j-(1<<k)+1][k]); 
+        return min(spt[i][k], spt[j-(1<<k)+1][k]);
     }
 };
 
