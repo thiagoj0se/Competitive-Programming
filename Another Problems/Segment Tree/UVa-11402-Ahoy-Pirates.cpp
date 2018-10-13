@@ -11,6 +11,14 @@
 #define bin_s binary_search
 #define ff find
 
+#define NOR 0
+#define CLR 1
+#define SET 2
+#define FLP 3
+
+#define left(idx) (idx << 1)
+#define right(idx) ((idx << 1) + 1)
+
 using namespace std;
 typedef long int ll;
 typedef vector<ll> vct;
@@ -18,14 +26,8 @@ typedef vector< vct > vvct;
 
 class SegmentTree {
 private:
-#define NOR 0
-#define CLR 1
-#define SET 2
-#define FLP 3
     vct arr, states, st;
 public:
-#define left(idx) (idx << 1)
-#define right(idx) ((idx << 1) + 1)
     void build(ll idx, ll L, ll R) {
         states[idx] = NOR;
         if(L == R) {
@@ -132,7 +134,7 @@ public:
     SegmentTree(vct &arr) {
         this->arr = arr;
         st.assign(4 * arr.size() + 1, 0);
-        states.assign(st.size(), 0);
+        states.assign(4 * st.size(), 0);
         build(1, 0, arr.size()-1);
     }
 };
